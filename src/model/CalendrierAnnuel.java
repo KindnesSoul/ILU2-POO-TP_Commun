@@ -42,12 +42,12 @@ public class CalendrierAnnuel {
 	}
 	
 	public boolean estLibre(int injour, int inmois) {
-		assert(inmois<12 || inmois>1 );	
+		if (inmois>12 || inmois<1 ) {throw new IllegalArgumentException("mois compris entre 1 et 12 ");}	
 		return (calendrier[inmois-1].estLibre(injour-1));
 	}
 	
 	public boolean reserver(int injour,int inmois) {
-		assert(inmois<12 || inmois>1 );	
+		if (inmois>12 || inmois<1 ) {throw new IllegalArgumentException("mois compris entre 1 et 12 ");}	
 		if (estLibre(injour,inmois)) {
 			calendrier[inmois-1].reserver(injour-1);
 			return true;
